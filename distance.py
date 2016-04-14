@@ -25,8 +25,12 @@ def levenshtein (a,b):
         length2 = levenshtein(a, b[1:]) +1 #so it's 1 different in b, move on, add 1
         length3 = levenshtein(a[1:], b[1:]) + (a[0] != b[0])  #if a 0 and b 0 are not equal, that is = 1, otherwise 0 if false
         known_memo [(a,b)] = min (length1, length2, length3)
+        #instead of doing the above line,
+        #VARIABLE = min (length1, length2, length3)
+        #known_memo[(a,b)] = VARIABLE
+    #return VARIABLE
     return known_memo[(a,b)]
 
-
+#put if name == main here so it doesn't run on import
 val = levenshtein(a,b)
 print val
